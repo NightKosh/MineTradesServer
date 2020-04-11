@@ -1,0 +1,15 @@
+DB_TYPE: postgresql
+DB_HOST: localhost:5432
+DB_NAME: postgres
+
+UNKNOWN_PLAYER_NAME: Unknown
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:${DB_TYPE}://${DB_HOST}/${DB_NAME}
+    username: postgres
+    password: Qwerty
+
