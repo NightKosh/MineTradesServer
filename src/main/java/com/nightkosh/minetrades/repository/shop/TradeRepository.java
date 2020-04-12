@@ -1,4 +1,4 @@
-package com.nightkosh.minetrades.repository;
+package com.nightkosh.minetrades.repository.shop;
 
 import com.nightkosh.minetrades.model.TradeEntity;
 import org.springframework.data.repository.CrudRepository;
