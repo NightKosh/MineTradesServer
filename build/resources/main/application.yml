@@ -1,6 +1,6 @@
-DB_TYPE: postgresql
-DB_HOST: localhost:5432
-DB_NAME: postgres
+#DB_TYPE: postgresql
+#DB_HOST: localhost:5432
+#DB_NAME: postgres
 
 UNKNOWN_PLAYER_NAME: Unknown
 
@@ -8,8 +8,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+    database-platform: org.hibernate.dialect.SQLiteDialect
   datasource:
-    url: jdbc:${DB_TYPE}://${DB_HOST}/${DB_NAME}
+#    url: jdbc:${DB_TYPE}://${DB_HOST}/${DB_NAME}
+    url: jdbc:sqlite:data.db
     username: postgres
     password: Qwerty
-
