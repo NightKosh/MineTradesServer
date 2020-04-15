@@ -1,4 +1,4 @@
-INSERT INTO myskin_uuid (Nick, UUID) VALUES
+INSERT INTO players (username, uuid) VALUES
 	('ZZWarrior', '000ad61c-29b2-4439-90f7-5bf1aa06731f'),
 	('ceveq', '00117d31-5b13-42e9-af7e-60c82427d739'),
 	('tomoly', '001307fe-b26c-4389-bcb7-6f76655265cd'),
