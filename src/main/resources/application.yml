@@ -19,6 +19,6 @@ shop:
 # player database
 player:
   datasource:
-    jdbc-url: jdbc:mariadb://localhost:3306/myskin
+    jdbc-url: jdbc:mariadb://localhost:3306/luckperms
     username: username
     password: Qwerty
