@@ -1,14 +1,16 @@
 package com.nightkosh.minetrades.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "myskin_uuid")
+@Entity(name = "players")
 public class PlayerEntity {
 
     @Id
     private String uuid;
 
+    @Column(name = "username")
     private String nick;
 
     public PlayerEntity() {
