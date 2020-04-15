@@ -19,6 +19,6 @@ shop:
 # player database
 player:
   datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/myskin
+    jdbc-url: jdbc:postgresql://localhost:5432/luckperms
     username: postgres
     password: Qwerty
