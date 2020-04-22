@@ -17,7 +17,9 @@ public class TradesController {
 
     @GetMapping("/search")
     @ResponseBody
-    public Map<String, List<TradeDto>> greeting(@RequestParam(value = "item") String item) {
-        return tradesService.getTrades(item).getTrades();
+    public Map<String, List<TradeDto>> search(
+            @RequestParam(value = "item") String item,
+            @RequestParam(value = "enchantment", required = false) String enchantment) {
+        return tradesService.getTrades(item, enchantment).getTrades();
     }
 }

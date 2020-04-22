@@ -9,7 +9,10 @@ import com.nightkosh.minetrades.repository.TradeRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+
+import javax.validation.constraints.NotNull;
 
 @Service
 public class TradesService {
@@ -22,9 +25,15 @@ public class TradesService {
     @Value("${UNKNOWN_PLAYER_NAME}")
     private String unknownPlayerName;
 
-    public TradesDto getTrades(String item) {
+    public TradesDto getTrades(@NotNull String item, @Nullable String enchantment) {
         TradesDto tradesDto = new TradesDto();
-        for (TradeEntity tradeEntity : tradeRepository.findByItemContains(item)) {
+        Iterable<TradeEntity> items;
+        if (item.equals("ENCHANTED_BOOK") && StringUtils.isNotBlank(enchantment)) {
+            items = tradeRepository.findByItemContainsAndItemContains("type: " + item + "\\n", enchantment);
+        } else {
+            items = tradeRepository.findByItemContains("type: " + item + "\\n");
+        }
+        for (TradeEntity tradeEntity : items) {
             String nick = playerRepository.findById(tradeEntity.getOwner())
                     .map(PlayerEntity::getNick)
                     .filter(StringUtils::isNotBlank)
