@@ -24,7 +24,7 @@ public class TradesService {
 
     public TradesDto getTrades(String item) {
         TradesDto tradesDto = new TradesDto();
-        for (TradeEntity tradeEntity : tradeRepository.findByItemContains(item)) {
+        for (TradeEntity tradeEntity : tradeRepository.findByItemContains("type: " + item + "\\n")) {
             String nick = playerRepository.findById(tradeEntity.getOwner())
                     .map(PlayerEntity::getNick)
                     .filter(StringUtils::isNotBlank)
