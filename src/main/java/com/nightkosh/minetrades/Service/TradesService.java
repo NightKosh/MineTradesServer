@@ -21,6 +21,8 @@ public class TradesService {
     TradeRepository tradeRepository;
     @Autowired
     PlayerRepository playerRepository;
+    @Autowired
+    ItemsService enchantmentsService;
 
     @Value("${UNKNOWN_PLAYER_NAME}")
     private String unknownPlayerName;
@@ -38,8 +40,9 @@ public class TradesService {
                     .map(PlayerEntity::getNick)
                     .filter(StringUtils::isNotBlank)
                     .orElse(unknownPlayerName);
+            TradeDto.ItemInfo itemInfo = enchantmentsService.getEnchantments(tradeEntity.getItem());
             tradesDto.addTrade(tradeEntity.getWorld(),
-                    new TradeDto(nick, tradeEntity.getX(), tradeEntity.getY(), tradeEntity.getZ()));
+                    new TradeDto(nick, tradeEntity.getX(), tradeEntity.getY(), tradeEntity.getZ(), itemInfo));
         }
         return tradesDto;
     }
