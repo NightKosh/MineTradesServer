@@ -10,17 +10,28 @@ public class TradeDto {
     private int x;
     private int y;
     private int z;
+    private boolean sell;
 
     private ItemInfo itemInfo;
 
     public TradeDto() {
     }
 
-    public TradeDto(String seller, int x, int yPos, int zPos, ItemInfo itemInfo) {
+    public TradeDto(String seller, int x, int y, int z, ItemInfo itemInfo) {
+        this(seller, x, y, z, true, itemInfo);
         this.seller = seller;
         this.x = x;
-        this.y = yPos;
-        this.z = zPos;
+        this.y = y;
+        this.z = z;
+        this.itemInfo = itemInfo;
+    }
+
+    public TradeDto(String seller, int x, int y, int z, boolean sell, ItemInfo itemInfo) {
+        this.seller = seller;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.sell = sell;
         this.itemInfo = itemInfo;
     }
 
@@ -38,6 +49,10 @@ public class TradeDto {
 
     public int getZ() {
         return z;
+    }
+
+    public boolean isSell() {
+        return sell;
     }
 
     public ItemInfo getItemInfo() {
