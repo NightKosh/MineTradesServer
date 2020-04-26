@@ -42,7 +42,7 @@ public class TradesService {
                     .orElse(unknownPlayerName);
             TradeDto.ItemInfo itemInfo = enchantmentsService.getEnchantments(tradeEntity.getItem());
             tradesDto.addTrade(tradeEntity.getWorld(),
-                    new TradeDto(nick, tradeEntity.getX(), tradeEntity.getY(), tradeEntity.getZ(), itemInfo));
+                    new TradeDto(nick, tradeEntity.getX(), tradeEntity.getY(), tradeEntity.getZ(), tradeEntity.isSell(), itemInfo));
         }
         return tradesDto;
     }
