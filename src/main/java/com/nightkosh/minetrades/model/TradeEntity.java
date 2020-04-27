@@ -1,6 +1,7 @@
 package com.nightkosh.minetrades.model;
 
 import com.nightkosh.minetrades.model.converter.OwnerConverter;
+import com.nightkosh.minetrades.model.converter.TradeTypeConverter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +24,9 @@ public class TradeEntity {
     private int y;
     @Id
     private int z;
+    @Column(name="type")
+    @Convert(converter = TradeTypeConverter.class)
+    private boolean sell;
 
     public TradeEntity() {
     }
@@ -81,6 +85,14 @@ public class TradeEntity {
 
     public void setZ(int z) {
         this.z = z;
+    }
+
+    public boolean isSell() {
+        return sell;
+    }
+
+    public void setSell(boolean sell) {
+        this.sell = sell;
     }
 
     @Override
