@@ -24,6 +24,9 @@ public class TradesService {
     @Autowired
     ItemsService enchantmentsService;
 
+    @Value("${SHOW_PRICE}")
+    private Boolean showPrice;
+
     @Value("${UNKNOWN_PLAYER_NAME}")
     private String unknownPlayerName;
 
@@ -42,7 +45,13 @@ public class TradesService {
                     .orElse(unknownPlayerName);
             TradeDto.ItemInfo itemInfo = enchantmentsService.getEnchantments(tradeEntity.getItem());
             tradesDto.addTrade(tradeEntity.getWorld(),
-                    new TradeDto(nick, tradeEntity.getX(), tradeEntity.getY(), tradeEntity.getZ(), tradeEntity.isSell(), itemInfo));
+                    new TradeDto(nick,
+                            showPrice ? tradeEntity.getPrice() : 0,
+                            tradeEntity.getX(),
+                            tradeEntity.getY(),
+                            tradeEntity.getZ(),
+                            tradeEntity.isSell(),
+                            itemInfo));
         }
         return tradesDto;
     }
