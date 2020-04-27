@@ -1,31 +1,41 @@
 package com.nightkosh.minetrades.dto;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+@Component
 public class TradeDto {
 
     private String seller;
+    private double price;
     private int x;
     private int y;
     private int z;
+    private boolean sell;
 
     private ItemInfo itemInfo;
 
     public TradeDto() {
     }
 
-    public TradeDto(String seller, int x, int yPos, int zPos, ItemInfo itemInfo) {
+    public TradeDto(String seller, double price, int x, int y, int z, boolean sell, ItemInfo itemInfo) {
         this.seller = seller;
+        this.price = price;
         this.x = x;
-        this.y = yPos;
-        this.z = zPos;
+        this.y = y;
+        this.z = z;
+        this.sell = sell;
         this.itemInfo = itemInfo;
     }
 
     public String getSeller() {
         return seller;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public int getX() {
@@ -38,6 +48,10 @@ public class TradeDto {
 
     public int getZ() {
         return z;
+    }
+
+    public boolean isSell() {
+        return sell;
     }
 
     public ItemInfo getItemInfo() {

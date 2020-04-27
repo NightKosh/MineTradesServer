@@ -3,6 +3,7 @@
 #DB_NAME: postgres
 
 UNKNOWN_PLAYER_NAME: Unknown
+SHOW_PRICE: false
 
 spring:
   jpa:
