@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.nightkosh'
-version = 'single_db-mariadb-0.0.1'
+version = 'multiple_db-mariadb-0.0.1'
 sourceCompatibility = '14'
 
 repositories {
