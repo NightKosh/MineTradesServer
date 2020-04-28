@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.nightkosh'
-version = 'single_db-postgres-0.0.1'
+version = 'single_db-sqlite-0.0.1'
 sourceCompatibility = '14'
 
 repositories {
