@@ -1,6 +1,18 @@
 
-UNKNOWN_PLAYER_NAME: Unknown
-SHOW_PRICE: false
+configs:
+  player_name: ${UNKNOWN_PLAYER_NAME:Unknown}
+  show_price: ${SHOW_PRICE:false}
+  db:
+    shop:
+      host: ${SHOP_DB_HOST:localhost:3306}
+      name: ${SHOP_DB_NAME:quickshop}
+      user: ${SHOP_DB_USER:username}
+      password: ${SHOP_DB_PASSWORD:password}
+    player:
+      host: ${PLAYER_DB_HOST:localhost:3306}
+      name: ${PLAYER_DB_NAME:luckperms}
+      user: ${PLAYER_DB_USER:username}
+      password: ${PLAYER_DB_PASSWORD:password}
 
 spring:
   jpa:
@@ -13,13 +25,14 @@ spring:
 # shop database
 shop:
   datasource:
-    jdbc-url: jdbc:mariadb://localhost:3306/quickshop
-    username: username
-    password: Qwerty
+    jdbc-url: jdbc:mariadb://${configs.db.shop.host}/${configs.db.shop.name}
+    username: ${configs.db.shop.user}
+    password: ${configs.db.shop.password}
 
 # player database
 player:
   datasource:
-    jdbc-url: jdbc:mariadb://localhost:3306/luckperms
-    username: username
-    password: Qwerty
+    jdbc-url: jdbc:mariadb://${configs.db.player.host}/${configs.db.player.name}
+    username: ${configs.db.player.user}
+    password: ${configs.db.player.password}
+

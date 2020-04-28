@@ -24,10 +24,10 @@ public class TradesService {
     @Autowired
     ItemsService enchantmentsService;
 
-    @Value("${SHOW_PRICE}")
+    @Value("${configs.show_price}")
     private Boolean showPrice;
 
-    @Value("${UNKNOWN_PLAYER_NAME}")
+    @Value("${configs.player_name}")
     private String unknownPlayerName;
 
     public TradesDto getTrades(@NotNull String item, @Nullable String enchantment) {
