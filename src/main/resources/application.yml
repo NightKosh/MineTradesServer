@@ -1,9 +1,12 @@
-#DB_TYPE: postgresql
-#DB_HOST: localhost:5432
-#DB_NAME: postgres
 
-UNKNOWN_PLAYER_NAME: Unknown
-SHOW_PRICE: false
+configs:
+  player_name: ${UNKNOWN_PLAYER_NAME:Unknown}
+  show_price: ${SHOW_PRICE:false}
+  db:
+    type: ${DB_TYPE:sqlite}
+    name: ${DB_NAME:data.db}
+    user: ${DB_USER:username}
+    password: ${DB_PASSWORD:password}
 
 spring:
   jpa:
@@ -11,7 +14,6 @@ spring:
       ddl-auto: none
     database-platform: org.hibernate.dialect.SQLiteDialect
   datasource:
-#    url: jdbc:${DB_TYPE}://${DB_HOST}/${DB_NAME}
-    url: jdbc:sqlite:data.db
-    username: postgres
-    password: Qwerty
+    url: jdbc:${configs.db.type}:${configs.db.name}
+    username: ${configs.db.user}
+    password: ${configs.db.password}
