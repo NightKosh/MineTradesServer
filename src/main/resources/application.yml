@@ -1,6 +1,20 @@
 
-UNKNOWN_PLAYER_NAME: Unknown
-SHOW_PRICE: false
+configs:
+  player_name: ${UNKNOWN_PLAYER_NAME:Unknown}
+  show_price: ${SHOW_PRICE:false}
+  db:
+    shop:
+      type: ${SHOP_DB_TYPE:postgresql}
+      host: ${SHOP_DB_HOST:localhost:5432}
+      name: ${SHOP_DB_NAME:quickshop}
+      user: ${SHOP_DB_USER:postgres}
+      password: ${SHOP_DB_PASSWORD:Qwerty}
+    player:
+      type: ${PLAYER_DB_TYPE:postgresql}
+      host: ${PLAYER_DB_HOST:localhost:5432}
+      name: ${PLAYER_DB_NAME:luckperms}
+      user: ${PLAYER_DB_USER:postgres}
+      password: ${PLAYER_DB_PASSWORD:Qwerty}
 
 spring:
   jpa:
@@ -13,13 +27,13 @@ spring:
 # shop database
 shop:
   datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/quickshop
-    username: postgres
-    password: Qwerty
+    jdbc-url: jdbc:${configs.db.shop.type}://${configs.db.shop.host}/${configs.db.shop.name}
+    username: ${configs.db.shop.user}
+    password: ${configs.db.shop.password}
 
 # player database
 player:
   datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/luckperms
-    username: postgres
-    password: Qwerty
+    jdbc-url: jdbc:${configs.db.player.type}://${configs.db.player.host}/${configs.db.player.name}
+    username: ${configs.db.player.user}
+    password: ${configs.db.player.password}
