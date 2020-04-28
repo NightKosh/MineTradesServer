@@ -1,16 +1,20 @@
-DB_TYPE: postgresql
-DB_HOST: localhost:5432
-DB_NAME: postgres
 
-UNKNOWN_PLAYER_NAME: Unknown
-SHOW_PRICE: false
+configs:
+  player_name: ${UNKNOWN_PLAYER_NAME:Unknown}
+  show_price: ${SHOW_PRICE:false}
+  db:
+    type: ${DB_TYPE:postgresql}
+    host: ${DB_HOST:localhost:5432}
+    name: ${DB_NAME:postgres}
+    user: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:Qwerty}
 
 spring:
   jpa:
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:${DB_TYPE}://${DB_HOST}/${DB_NAME}
-    username: postgres
-    password: Qwerty
+    url: jdbc:${configs.db.type}://${configs.db.host}/${configs.db.name}
+    username: ${configs.db.user}
+    password: ${configs.db.password}
 
