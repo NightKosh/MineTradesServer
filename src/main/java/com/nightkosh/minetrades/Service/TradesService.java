@@ -34,9 +34,9 @@ public class TradesService {
         TradesDto tradesDto = new TradesDto();
         Iterable<TradeEntity> items;
         if (item.equals("ENCHANTED_BOOK") && StringUtils.isNotBlank(enchantment)) {
-            items = tradeRepository.findByItemContainsAndItemContains("type: " + item + "\\n", enchantment);
+            items = tradeRepository.findByItemContainsAndItemContains("type: " + item + "\n", enchantment);
         } else {
-            items = tradeRepository.findByItemContains("type: " + item + "\\n");
+            items = tradeRepository.findByItemContains("type: " + item + "\n");
         }
         for (TradeEntity tradeEntity : items) {
             String nick = playerRepository.findById(tradeEntity.getOwner())

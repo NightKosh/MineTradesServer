@@ -14,7 +14,7 @@ public class ItemsService {
 
     public TradeDto.ItemInfo getEnchantments(String item) {
         Map<String, Integer> enchantments = new HashMap<>();
-        Iterator<String> it =  Arrays.asList(item.split("\\\\n")).iterator();
+        Iterator<String> it =  Arrays.asList(item.split("\\n")).iterator();
         while (it.hasNext()) {
             String str = it.next();
             if (str.contains("stored-enchants:") || str.contains("enchants:")) {
@@ -40,7 +40,7 @@ public class ItemsService {
         if (pos != -1) {
             try {
                 name = item.substring(pos);
-                name = name.substring(14, name.indexOf("\\n"));
+                name = name.substring(14, name.indexOf("\n"));
             } catch (StringIndexOutOfBoundsException e) {
                 name = null;
                 log.error(String.format("Can't parse item name"));

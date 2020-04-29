@@ -6,12 +6,12 @@ configs:
     shop:
       host: ${SHOP_DB_HOST:localhost:3306}
       name: ${SHOP_DB_NAME:quickshop}
-      user: ${SHOP_DB_USER:username}
+      user: ${SHOP_DB_USER:root}
       password: ${SHOP_DB_PASSWORD:password}
     player:
       host: ${PLAYER_DB_HOST:localhost:3306}
       name: ${PLAYER_DB_NAME:luckperms}
-      user: ${PLAYER_DB_USER:username}
+      user: ${PLAYER_DB_USER:root}
       password: ${PLAYER_DB_PASSWORD:password}
 
 spring:
