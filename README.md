@@ -13,18 +13,17 @@ This application provides you a single get endpoint:
 
 ## Branches
 
-At the moment there are a few branches in this repository. As you may suggest by their names, the main difference between them is the amount and types of the databases. The "master" branch supports "single"(that's means that QuickShop and LuckPerms tables stored in the same database) postgres database.
+At the moment there are a few branches in this repository. As you may suggest by their names, the main difference between them is the amount and types of the databases. This branch supports "single"(that's means that QuickShop and LuckPerms tables stored in the same database) sqlite database.
 
 ## Configuration
 
 To make it easier for you almost all important things can be configured in "application.yml" file in "configs" section. For sure some of them, such as database connection parameters should be changed by you, but other params are optional and has default values. 
 Alternatively, instead of any modifications in the sources, you can provide those params at the application start up. 
 Here is the list of all available parameters:
-* DB_TYPE - type of the database(default - postgresql). Application in the master branch designed for postgres database, so some other databases may require some additional modification
-* DB_HOST - database host(default - localhost:5432)
-* DB_NAME - database name(default - postgres)
-* DB_USER - database user name(default - postgres)
-* DB_PASSWORD - database password(default - Qwerty)
+* DB_TYPE - type of the database(default - sqlite)
+* DB_NAME - database name(default - data.db)
+* DB_USER - database user name(default - username)
+* DB_PASSWORD - database password(default - password)
 * SHOW_PRICE - this option allows you disable to show trades prices(default - false)
 * UNKNOWN_PLAYER_NAME - text which will be used in case of no data about player in your database(default - Unknown)
 
