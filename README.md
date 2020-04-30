@@ -13,18 +13,21 @@ This application provides you a single get endpoint:
 
 ## Branches
 
-At the moment there are a few branches in this repository. As you may suggest by their names, the main difference between them is the amount and types of the databases. The "master" branch supports "single"(that's means that QuickShop and LuckPerms tables stored in the same database) postgres database.
+At the moment there are a few branches in this repository. As you may suggest by their names, the main difference between them is the amount and types of the databases. This branch supports "multiple"(that's means that QuickShop and LuckPerms tables stored in different databases) MariaDB database.
 
 ## Configuration
 
 To make it easier for you almost all important things can be configured in "application.yml" file in "configs" section. For sure some of them, such as database connection parameters should be changed by you, but other params are optional and has default values. 
 Alternatively, instead of any modifications in the sources, you can provide those params at the application start up. 
 Here is the list of all available parameters:
-* DB_TYPE - type of the database(default - postgresql). Application in the master branch designed for postgres database, so some other databases may require some additional modification
-* DB_HOST - database host(default - localhost:5432)
-* DB_NAME - database name(default - postgres)
-* DB_USER - database user name(default - postgres)
-* DB_PASSWORD - database password(default - Qwerty)
+* SHOP_DB_HOST - QuickShop database host(default - localhost:3306)
+* SHOP_DB_NAME - QuickShop database name(default - quickshop)
+* SHOP_DB_USER - QuickShop database user name(default - root)
+* SHOP_DB_PASSWORD - QuickShop database password(default - password)
+* PLAYER_DB_HOST - LuckPerms database host(default - localhost:3306)
+* PLAYER_DB_NAME - LuckPerms database name(default - luckperms)
+* PLAYER_DB_USER - LuckPerms database user name(default - root)
+* PLAYER_DB_PASSWORD - database password(default - password)
 * SHOW_PRICE - this option allows you disable to show trades prices(default - false)
 * UNKNOWN_PLAYER_NAME - text which will be used in case of no data about player in your database(default - Unknown)
 
