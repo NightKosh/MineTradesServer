@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.nightkosh'
-version = 'multiple_db-postgres-0.0.1'
+version = 'multiple_db-postgres-0.0.2'
 sourceCompatibility = '1.8'
 
 repositories {
